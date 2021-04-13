@@ -1,7 +1,7 @@
 USE [CMS]
 GO
 
-/****** Object:  StoredProcedure [dbo].[USP_CMS_USER_SEARCH]    Script Date: 2021-04-09 오후 5:37:29 ******/
+/****** Object:  StoredProcedure [dbo].[USP_CMS_USER_SEARCH]    Script Date: 2021-04-13 오후 4:27:31 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -31,7 +31,9 @@ CREATE PROC [dbo].[USP_CMS_USER_SEARCH]
 	, @TAGS VARCHAR(1000)
 	, @PAGE_START VARCHAR(4)
 	, @PAGE_END VARCHAR(4)
-AS
+AS  
+SET NOCOUNT ON;  
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;  
 DECLARE @SQL VARCHAR(4000)
 		, @SQLT VARCHAR(4000)
  

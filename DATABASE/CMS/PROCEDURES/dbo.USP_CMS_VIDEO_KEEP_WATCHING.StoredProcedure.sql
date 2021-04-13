@@ -1,7 +1,7 @@
 USE [CMS]
 GO
 
-/****** Object:  StoredProcedure [dbo].[USP_CMS_VIDEO_KEEP_WATCHING]    Script Date: 2021-04-06 오후 6:12:13 ******/
+/****** Object:  StoredProcedure [dbo].[USP_CMS_VIDEO_KEEP_WATCHING]    Script Date: 2021-04-13 오후 4:27:20 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -19,7 +19,9 @@ GO
 
 CREATE PROC [dbo].[USP_CMS_VIDEO_KEEP_WATCHING]
 	@CUST_EMAIL VARCHAR(50)
-AS
+AS  
+SET NOCOUNT ON;  
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;  
  
 BEGIN
 	IF EXISTS( SELECT CUST_EMAIL  

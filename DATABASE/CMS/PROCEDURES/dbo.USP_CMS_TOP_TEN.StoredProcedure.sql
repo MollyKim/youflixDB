@@ -1,7 +1,7 @@
 USE [CMS]
 GO
 
-/****** Object:  StoredProcedure [dbo].[USP_CMS_TOP_TEN]    Script Date: 2021-04-06 오후 6:09:06 ******/
+/****** Object:  StoredProcedure [dbo].[USP_CMS_TOP_TEN]    Script Date: 2021-04-13 오후 4:27:40 ******/
 SET ANSI_NULLS ON
 GO
 
@@ -20,11 +20,13 @@ TITLE / CNT / VIDEO_LENGTH / ISSUB_YN  / [DESCRIPTION]  /  VIDEO_URL  /  VIDEO_T
 -- 이       력 : 
 -------------------------------------------------------------------------------------------
 CREATE PROC [dbo].[USP_CMS_TOP_TEN]
-AS 
+AS  
+SET NOCOUNT ON;  
+SET TRANSACTION ISOLATION LEVEL READ COMMITTED;   
 DECLARE @YESTERDAY VARCHAR(10)
 
 BEGIN
-SET @YESTERDAY = CONVERT(VARCHAR(10), DATEADD(D,-40,GETDATE()), 120)
+SET @YESTERDAY = CONVERT(VARCHAR(10), DATEADD(D,-1,GETDATE()), 120)
 
 	SELECT CASE ISNULL(SPL.SUB_PLAY_LIST,'')  
              WHEN '' THEN   V.TITLE
